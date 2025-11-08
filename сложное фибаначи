@@ -1,0 +1,23 @@
+import math
+ch={}
+def fiban(i):
+    if i==0:
+        return 0
+    elif i==1:
+        return 1
+    if i in ch:
+        return ch[i]
+
+    a=(1+math.sqrt(5))/2
+    b=(1-math.sqrt(5))/2
+    end1 = (pr(a,i)-pr(b,i)) / math.sqrt(5)
+    ch[i] = end1
+    return end1
+
+def pr(z,y):
+    if y==0:
+        return 1
+    return z*pr(z,y-1)
+c=int(input("Введите число, не букву!"))
+print(f"{c} == {fiban(c)}")
+print(f"Вывод: {ch}")
